@@ -1,13 +1,7 @@
-## JavaScript 笔记
-
-
-
-### 文件资源目录 📚
+## JavaScript 笔记 📚
 
 ```text
 ├─ javascript01.js               # 数据类型
-
-
 
 
 ├─ .vscode                # VSCode 推荐配置
@@ -56,6 +50,4 @@
 ├─ tsconfig.json          # typescript 全局配置
 └─ vite.config.ts         # vite 全局配置文件
 ```
-
-### 浏览器支持 🌎
 
