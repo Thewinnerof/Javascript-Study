@@ -16,3 +16,7 @@ myFunction(a, b);
 
 
 // html 文本输出内容 - innerHtml
+
+
+// 作用域
+
