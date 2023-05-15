@@ -6,11 +6,10 @@ Pink老师
 ├─ javascript01.js   
 │  ├─       
 │  ├─ getElementById("{选择的id元素}").innerHTML="{写入的内容}"      # 写入到某个id元素中    
-│  ├─ var {变量名} = "{赋值}"                                        # var 声明JavaScript变量
-│  ├─ api                 # API 接口管理
+│  ├─ var                                                            # var 声明JavaScript变量
 │  ├─ 数据类型
-│  ├─  ├─ typeof {值，Eg:3.14 => 数值 number类型}
-│  ├─  ├─ new {类型 Eg: Number / String}                             # 声明变量类型
+│  ├─  ├─ typeof                                                        # 检测变量类型
+│  ├─  ├─ new                                                           # 声明变量类型
 │  ├─  ├─ 
 │  ├─  ├─ 
 │  ├─  ├─ 
@@ -20,13 +19,15 @@ Pink老师
 │  ├─ 对象
 │  ├─ 作用域 
 │  ├─  ├─ 作用域为可访问变量，对象，函数的集合；作用域在函数内可修改。
+│  ├─ HTML事件列表 - DOM事件        (https://www.runoob.com/jsref/dom-obj-event.html)[https://www.runoob.com/jsref/dom-obj-event.html]
+│  ├─  ├─ onchange                  HTML元素改变
+│  ├─  ├─ onclick                   用户点击HTML元素
+│  ├─  ├─ onmouseover               用户鼠标指针移动到某个元素上触发
+│  ├─  ├─ onmouseout                用户鼠标指针离开某个元素触发
+│  ├─  ├─ onkeydown                 用户按下键盘按键
+│  ├─  ├─ onload                    浏览器已完成页面加载
 │  ├─  ├─ 
 │  ├─  ├─ 
-│  ├─  ├─ 
-│  ├─  ├─ 
-│  ├─  ├─ 
-
-
 ├─ .vscode                # VSCode 推荐配置
 ├─ build                  # Vite 配置项
 ├─ public                 # 静态资源文件（该文件夹不会被打包）
