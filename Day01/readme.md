@@ -19,15 +19,21 @@ Pink老师
 │  ├─ 对象
 │  ├─ 作用域 
 │  ├─  ├─ 作用域为可访问变量，对象，函数的集合；作用域在函数内可修改。
-│  ├─ HTML事件列表 - DOM事件        (https://www.runoob.com/jsref/dom-obj-event.html)[https://www.runoob.com/jsref/dom-obj-event.html]
+│  ├─ HTML事件列表 - DOM事件        https://www.runoob.com/jsref/dom-obj-event.html
 │  ├─  ├─ onchange                  HTML元素改变
 │  ├─  ├─ onclick                   用户点击HTML元素
 │  ├─  ├─ onmouseover               用户鼠标指针移动到某个元素上触发
 │  ├─  ├─ onmouseout                用户鼠标指针离开某个元素触发
 │  ├─  ├─ onkeydown                 用户按下键盘按键
 │  ├─  ├─ onload                    浏览器已完成页面加载
+│  ├─ 字符串                        https://www.runoob.com/jsref/jsref-obj-string.html
+│  ├─  ├─ .length                   字符串长度
+│  ├─  ├─ .constructor              返回创建字符串属性的函数
+│  ├─  ├─ .prototype                允许您向对象添加属性和方法
 │  ├─  ├─ 
 │  ├─  ├─ 
+│  ├─  ├─ 
+
 ├─ .vscode                # VSCode 推荐配置
 ├─ build                  # Vite 配置项
 ├─ public                 # 静态资源文件（该文件夹不会被打包）
