@@ -30,13 +30,28 @@ Pink老师
 │  ├─  ├─ .length                   字符串长度
 │  ├─  ├─ .constructor              返回创建字符串属性的函数
 │  ├─  ├─ .prototype                允许您向对象添加属性和方法
-│  ├─  ├─ 
-│  ├─  ├─ 
+│  ├─ switch 语句                   基于不同的条件来z
+│  ├─ for循环                       for (var i=0; i<5; i++)
+│  ├─ 类型转换
+│  ├─  ├─ Number()                  转为数字
+│  ├─  ├─ String()                  转为字符串
+│  ├─  ├─ Boolean()                 转为布尔值
+│  ├─  ├─ toString()                数字可转为字符串
+│  ├─ 正则表达式
+│  ├─  ├─ search()                  字符串参数作为表达式
+│  ├─  ├─ replace()                 不区分大小写将字符串替换
+│  ├─  ├─ RegExp                    RegExp对象是一个预定义了属性和方法的正则表达式         
+│  ├─  ├─ test()                    用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。
+│  ├─  ├─ exec()                    用于检索字符串中的正则表达式的匹配
+│  ├─ JavaScript 错误 throw / try / catch
+│  ├─  ├─ try                       测试代码块的错误
+│  ├─  ├─ catch                     语句处理错误
+│  ├─  ├─ throw                     创建自定义错误
+│  ├─  ├─ finally                    try和catch语句之后，无论是否有触发异常，该语句都会执行
 │  ├─  ├─ 
 
-├─ .vscode                # VSCode 推荐配置
-├─ build                  # Vite 配置项
-├─ public                 # 静态资源文件（该文件夹不会被打包）
+
+
 ├─ src
 │  ├─ api                 # API 接口管理
 │  ├─ assets              # 静态资源文件
