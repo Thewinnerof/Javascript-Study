@@ -45,3 +45,19 @@ try{
 	console.log("此处调用变量carName错误");
 }
 // 这里不可以使用carName变量
+
+
+
+
+// 回调函数
+function print(){
+	console.log("控制台输出内容");
+}
+// 延时3秒后输出
+setTimeout(print, 3000)
+
+
+// 改写方法
+setTimeout(function(){
+	console.log("不需要单独写一个print函数");
+}, 3000)
