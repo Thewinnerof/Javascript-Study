@@ -94,6 +94,65 @@
 						}, 6000);
 					});
 			</script>
+
+			<p>resolve 成功返回 reject 错误返回， then处理成功状态的回调函数， catch处理错误的， finally处理成功或者错误都返回</p>
+			<p id="demo2"></p>
+			<p id="demo3"></p>
+			<script>
+				new Promise(function (resolve, reject) {
+					var a = 0;
+					var b = 1;
+					if (b == 101) {
+						reject("Divide zero");
+					} else {
+						resolve(a / b);
+					}
+				})
+					.then(function (value) {
+						document.getElementById("demo2").innerHTML = "a / b = " + value;
+					})
+					.catch(function (err) {
+						document.getElementById("demo2").innerHTML = err;
+					})
+					.finally(function () {
+						document.getElementById("demo3").innerHTML = "无论是成功还是失败状态都会执行finally回调函数";
+					});
+			</script>
+
+			<!-- 示例 -->
+			<script>
+				function print(delay, message) {
+					return new Promise(function (resolve, reject) {
+						setTimeout(function () {
+							console.log(message);
+							resolve();
+						}, delay);
+					});
+				}
+
+				print(1000, "First1")
+					.then(function () {
+						return print("4000", "Second");
+					})
+					.then(function () {
+						print("3000", "Third");
+					});
+			</script>
+
+			<p class="demo4">async 异步函数操作</p>
+			<script>
+				async function asyncFunction() {
+					try {
+						await new Promise(function (resolve, reject) {
+							throw "Some error";
+						});
+					} catch (err) {
+						console.log(err);
+					}
+				}
+
+				asyncFunction();
+			</script>
 		</div>
 	</body>
 </html>
