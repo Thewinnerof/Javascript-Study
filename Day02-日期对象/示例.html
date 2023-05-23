@@ -43,6 +43,15 @@
 		</style>
 	</head>
 	<body>
-		<p>这事</p>
+		<p>当前时间：<span id="demo1"></span></p>
+		<script>
+			var today = new Date();
+			document.getElementById("demo1").innerHTML = today;
+
+			console.log("日期：", Date());
+			console.log("获取getFullYear()年份", today.getFullYear());
+			console.log("获取1970.1.1到至今的毫秒数", today.getTime());
+			console.log("显示星期：", today.getDay());
+		</script>
 	</body>
 </html>
