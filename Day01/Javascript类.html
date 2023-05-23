@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<!-- 必须的 meta 标签 -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0" />
+		<title>vw适配响应式</title>
+
+		<style>
+			* {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			/* 移动端&平板适配 */
+			@media screen and (max-width: 1028px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: calc(100vw / 375 * 10);
+				}
+			}
+			/* PC端适配 */
+			@media only screen and (min-width: 1029px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: 10px;
+				}
+
+				.container {
+					max-width: 102.9rem;
+					margin: 0 auto;
+				}
+			}
+
+			.container {
+				width: 100vw;
+				height: 100vh;
+				background: linear-gradient(-225deg, #473b7b 0%, #3584a7 51%, #30d2be 100%);
+			}
+
+			.container p {
+				font-size: 1.6rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<p id="demo"></p>
+			<script>
+				// 创建类
+				class Runoob {
+					constructor(name, url, year) {
+						this.name = name;
+						this.url = url;
+						this.year = year;
+					}
+
+					age() {
+						let date = new Date();
+						return date.getFullYear() - this.year;
+					}
+				}
+
+				let site = new Runoob("菜鸟教程", "123", 2002);
+				document.getElementById("demo").innerHTML = "今年已经" + site.age() + "岁了";
+			</script>
+
+			<p>基类</p>
+
+			<script>
+				// 基类
+				class Animal {
+					constructor(name) {
+						// 构造函数;
+						this.sitename = name;
+					}
+
+					eat() {
+						console.log("吃的动作");
+					}
+
+					run() {
+						console.log("奔跑动作");
+					}
+				}
+
+				// 派生类
+				class Dog extends Animal {
+					constructor(name) {
+						// 继承父类的构造函数
+						super(name);
+					}
+
+					name() {
+						console.log("我是狗");
+					}
+				}
+
+				let Dog1 = new Dog();
+				Dog1.name();
+
+				// 静态方法
+			</script>
+
+			<p id="demo33"></p>
+			<script>
+				var person = new Object();
+				person.firstname = "John";
+				person.lastname = "Joe";
+				person.age = 20;
+				person.eyecolor = "blue";
+				document.getElementById("demo33").innerHTML = person.firstname + person.lastname + person.age + person.eyecolor;
+			</script>
+
+			<script>
+				var peoson1 = 123
+				
+				console.log(peoson1)
+			</script>
+		</div>
+	</body>
+</html>

@@ -73,6 +73,57 @@ Pink 老师
 │  async  异步函数
 │  ├─  ├─ 1. await                      必须跟一个promise
 │  ├─  ├─ 2. try-catch                  处理异常的机制
+│  作为函数方法调用函数
+│  ├─  ├─ 1. call                       [预定义的函数方法]  两个方法可用于调用函数，两个方法的第一个参数必须是对象本身。
+│  ├─  ├─ 2. apply                      [预定义的函数方法]  两个方法可用于调用函数，两个方法的第一个参数必须是对象本身。
+│  Javascript类
+│  ├─  ├─ 1. constructor()                构造函数    类似 python def __init__(self):
+│  ├─  ├─ 2. super()                      引用父类的构造函数方法
+│  ├─  ├─ 3. getter()                     getter 使用get关键字
+│  ├─  ├─ 4. setter()                     set关键字
+│  ├─  ├─ 5. static                       static 静态方法
+│  Dom 文档对象模型
+│  ├─  ├─ 1. getElementById               
+│  ├─  ├─ 2. getElementsByTagName         var y=document.getElementById("main").getElementsByTagName("p"); 找id=main的元素下的所有p元素
+│  ├─  ├─ 3. getElementsByClassName       通过类名找到HTML元素
+│  ├─  ├─ 4. innerHTML()                  document.getElementById(id).innerHTML=新的 HTML  更改此元素的内容
+│  ├─  ├─ 5. .style.property              document.getElementById(id).style.property=新样式    [color / fontFamily / fontSize]
+│  ├─  ├─ 6. onclick                      点击事件
+│  ├─  ├─ 7. onload                       用户进入页面时触发
+│  ├─  ├─ 8. onunload                     用户离开页面时触发
+│  ├─  ├─ 9. onchange                     针对输入字段验证来使用
+│  ├─  ├─ 10.onmouseover                  鼠标进入元素时触发
+│  ├─  ├─ 11.onmouseout                   鼠标移出元素时触发 
+│  ├─  ├─ 12.onmousedown                  鼠标被按下时触发              [可用于对元素拖动，在此事件中获取鼠标位置，在onmousemove事件中移动元素]
+│  ├─  ├─ 13.onmouseup                    鼠标被释放时触发
+│  ├─  ├─ 14.onfocus                      元素被获取焦点时触发
+│  ├─  ├─ 15.addEventListener             点击按钮时触发监听事件    element.addEventListener(event, function, useCapture);
+│  ├─  ├─ 16.removeEventListener          移除addEventListener()方法添加的事件句柄
+│  ├─  ├─ 17.document.createElement("p"); 创建p标签
+│  ├─  ├─ 18.document.createTextNode("这是一个新的段落。"); 创建新的文本节点
+│  ├─  ├─ 19.appendChild()                将元素插入到结束位置
+│  ├─  ├─ 20.insertBefore()               将元素插入到开始位置
+│  ├─  ├─ 21.removeChild()                移除某个元素
+│  ├─  ├─ 22.replaceChild()               替换DOM元素
+│  ├─  ├─ 23.querySelectorAll()           document.querySelectorAll("p"); 获取 <p> 元素的集合
+│  Javascript对象
+│  ├─  ├─ 1. .length                      获取字符串长度
+│  ├─  ├─ 2. toUpperCase()                小写全部变大写
+│  ├─  ├─ 3. toString()                   (16,8,2) 输出进制
+│  ├─  数字方法
+│  ├─  ├─ 1. parseFloat()                 转浮点数
+│  ├─  ├─ 2. parseInt()                   字符串转整型数字
+│  ├─  ├─ 3. isFinite()                   判断传递参数是否是有限数字
+│  ├─  ├─ 4. Integer()                    判断是否是整型数字
+│  ├─  ├─ 5. isNaN()                      判断传递的参数是否为 isNaN()。
+│  ├─  ├─ 6. isSafeInteger()              判断传递的参数是否为安全整数。
+│  ├─  ├─
+│  ├─  ├─
+│  ├─  ├─
+│  ├─  ├─
+│  ├─  ├─
+│  ├─  ├─
+│  ├─  ├─
 │  ├─  ├─
 │  └─ vite-env.d.ts       # 指定 ts 识别 vue
 └─ vite.config.ts         # vite 全局配置文件

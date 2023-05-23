@@ -153,6 +153,40 @@
 
 				asyncFunction();
 			</script>
+
+			<p>找最大数: <span id="demo6"></span></p>
+			<script>
+				x = findMax(1, 123, 333, 666, 44, 22);
+
+				function findMax() {
+					var i,
+						max = arguments[0];
+
+					console.log(arguments, i, " +  ", max);
+
+					if (arguments.length < 2) return max;
+
+					for (i = 0; i < arguments.length; i++) {
+						if (arguments[i] > max) {
+							max = arguments[i];
+						}
+					}
+
+					return max;
+				}
+
+				document.getElementById("demo6").innerHTML = x;
+			</script>
+
+			<p>预定义函数 call / apply</p>
+			<script>
+				function myFunc(a, b) {
+					console.log(a * b);
+					return a * b;
+				}
+
+				myObject = myFunc.call(myObject, 10, 2);
+			</script>
 		</div>
 	</body>
 </html>
