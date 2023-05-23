@@ -108,8 +108,9 @@ Pink 老师
 │  ├─  ├─ 23.querySelectorAll()           document.querySelectorAll("p"); 获取 <p> 元素的集合
 │  Javascript对象
 │  ├─  ├─ 1. .length                      获取字符串长度
-│  ├─  ├─ 2. toUpperCase()                小写全部变大写
-│  ├─  ├─ 3. toString()                   (16,8,2) 输出进制
+│  ├─  ├─ 2. toUpperCase()                小写全部转大写
+│  ├─  ├─ 3. toLowerCase()                大写全部转小写
+│  ├─  ├─ 4. toString()                   (16,8,2) 输出进制
 │  ├─  数字方法
 │  ├─  ├─ 1. parseFloat()                 转浮点数
 │  ├─  ├─ 2. parseInt()                   字符串转整型数字
@@ -117,9 +118,9 @@ Pink 老师
 │  ├─  ├─ 4. Integer()                    判断是否是整型数字
 │  ├─  ├─ 5. isNaN()                      判断传递的参数是否为 isNaN()。
 │  ├─  ├─ 6. isSafeInteger()              判断传递的参数是否为安全整数。
-│  ├─  ├─
-│  ├─  ├─
-│  ├─  ├─
+│  ├─  ├─ 7. indexOf()                    定位字符串中某一个指定的字符首次出现的位置
+│  ├─  ├─ 8. replace("Microsoft","Runoob")  Microsoft 替换成 Runoob 
+│  ├─  ├─ 9. split(",")                   字符串转为数组用，号分割
 │  ├─  ├─
 │  ├─  ├─
 │  ├─  ├─
