@@ -36,26 +36,18 @@
 │  ├─ window.prompt("sometext","defaultvalue"); 用于提示用户在进入页面前输入某个值。
 │  └─ 
 │  
-│  计时事件
-│  ├─ setInterval()           合并数组
-│  ├─ join()             数组的元素组成字符串
-│  ├─ pop()              删除数组的最后一个元素
-│  ├─ shift()            删除数组的第一个元素
-│  ├─ push()             数组的末尾添加新的元素
-│  ├─ unshift()          在数组的开头添加新元素
-│  ├─ reverse()          将一个数组中的元素的顺序反转排序
-│  ├─ slice()            从一个数组中选择元素
-│  ├─ sort()             数组排序（按字母顺序升序）
-│  ├─ splice()           在数组的第2位置添加一个元素 
-│  ├─ toString()         转换数组到字符串
-│  RegExp正则表达式
-│  ├─ var patt=/pattern/modifiers;  
-│  ├─ 修饰符
-│  ├─ ├─ i              修饰符是用来执行不区分大小写的匹配 
-│  ├─ ├─ g              修饰符是用于执行全文的搜索（而不是在找到第一个就停止查找,而是找到所有的匹配）。
-│  ├─ ├─ match()        检测字符串是否匹配某模式；提取字符串中的信息(使用捕获组)；查找所有匹配结果(使用全局标志g)
-│  ├─ ├─ test()         测试字符串是否匹配某模式,返回true或false
-│  ├─ ├─ exec()         检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回 null。
+│  计时事件         🔨
+│  ├─ setInterval()           间隔指定的毫秒数不停地执行指定的代码  window.setInterval("javascript function",milliseconds);
+│  ├─ clearInterval()         用于停止 setInterval() 方法执行的函数代码。
+│  ├─ setTimeout()            等待定义多少秒后执行第一个参数（函数）   setTimeout(function(){alert("Hello")},3000);
+│  ├─ clearTimeout()          用于停止执行setTimeout()方法的函数代码。
+│  ├─ 
+│  └─ 
+│ 
+│  Cookie       用于存储 web 页面的用户信息。 [创建、读取、删除]      🔨
+│  ├─ 创建cookie              document.cookie="username=John Doe";
 │  └─ 
 └─ 
 ```
+
+参考示例： https://www.runoob.com/js/js-examples.html

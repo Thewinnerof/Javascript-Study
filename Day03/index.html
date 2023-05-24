@@ -48,8 +48,18 @@
 
 			// window.open();
 
-            console.log("可用屏幕宽度", screen.availWidth);
-            console.log("可用屏幕高度", screen.availHeight);
+			console.log("可用屏幕宽度", screen.availWidth);
+			console.log("可用屏幕高度", screen.availHeight);
+
+			// 创建cookies
+			document.cookie = "username=Anthony";
+			// 添加一个过期时间，默认情况下cookie在浏览器关闭时删除
+			document.cookie = "username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT";
+			// 使用path参数告诉浏览器cookie的路径，默认情况下属于当前页面
+			document.cookie = "username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+			// 读取cookie
+			var x = document.cookie;
+			console.log(x);
 		</script>
 	</body>
 </html>
