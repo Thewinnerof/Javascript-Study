@@ -60,6 +60,30 @@
 			// 声明方式3
 			var myCars2 = ["Saab", "Volvo", "Mercedes"];
 			console.log("字面", myCars);
+
+			// 合并数组
+			var a = ["Google", "TaoBao"];
+			var b = ["Wiki", "ZhiHu"];
+			// # 追加一个
+			var c = a.concat(b);
+			// # 追加多个
+			var d = a.concat(a, c);
+			console.log(c);
+
+			console.log("追加多个", d);
+
+			// join数组转字符串
+			var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			console.log(fruits.join());
+
+			// 不分大小写找关键词
+			var str = "Visit Runoob";
+			var patt1 = /runoob/i;
+			console.log(str.match(patt1));
+
+			// test()方法
+			var patt2 = new RegExp("e");
+			console.log(patt2.test("The best things in life are free")); //true
 		</script>
 	</body>
 </html>
