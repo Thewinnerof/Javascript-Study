@@ -45,17 +45,17 @@
 	<body>
 		<script>
 			// 实现模块化
-            // 我们可以使用闭包封装一些变量和函数,只在需要时暴露闭包,这样可以避免变量和函数的全局污染。
+			// 我们可以使用闭包封装一些变量和函数,只在需要时暴露闭包,这样可以避免变量和函数的全局污染。
 			let counter = (function () {
 				let num = 0;
 				function increment() {
 					num++;
-                    console.log(num);
+					console.log(num);
 				}
 
 				function getNum() {
 					return num;
-                    console.log(111);
+					console.log(111);
 				}
 
 				return {
@@ -66,6 +66,41 @@
 
 			counter.increment();
 			counter.getNum();
+
+			// 实现柯里化
+			// 柯里化是将一个多参数的函数转换成多个单参数的函数的技术。闭包可以很容易实现柯里化。
+			function currying(fn) {
+				return function (a) {
+					return function (b) {
+						console.log(fn(a, b));
+						return fn(a, b);
+					};
+				};
+			}
+
+			let add = (x, y) => x + y;
+			let curriedAdd = currying(add);
+			let add10 = curriedAdd(10);
+			add10(20);
+
+			// 实现缓存
+			function makeArr() {
+				let arr = [];
+				for (let i = 0; i < 10; i++) {
+					arr.push(i);
+				}
+
+				return {
+					getArr: function () {
+						return arr;
+					},
+				};
+			}
+
+			let obj = makeArr();
+			let arr1 = obj.getArr();
+			let arr2 = obj.getArr();
+			console.log(arr1 === arr2);
 		</script>
 	</body>
 </html>
