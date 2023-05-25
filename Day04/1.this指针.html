@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<!-- 必须的 meta 标签 -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0" />
+		<title>vw适配响应式</title>
+
+		<style>
+			* {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			/* 移动端&平板适配 */
+			@media screen and (max-width: 1028px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: calc(100vw / 375 * 10);
+				}
+
+				p {
+					font-size: 1.6rem;
+					font-family: PingFangSC;
+				}
+			}
+			/* PC端适配 */
+			@media only screen and (min-width: 1029px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<p id="demo1">当前方法：this指针 <button id="demo2" onclick="obj.greet()">Click me</button></p>
+		<script>
+			// 作为对象的方法调用
+			const obj = {
+				name: "John",
+				greet: function () {
+					console.log(this.name);
+					document.getElementById("demo2").innerHTML = this.name;
+				},
+			};
+
+			// 作为函数调用
+			function greet1() {
+				console.log(this);
+			}
+
+			greet1();
+
+			// 构造器调用
+			function Person(name) {
+				this.name = name;
+				console.log(this.name);
+			}
+
+			let johnn = new Person("John");
+
+			// bind,call和apply调用
+			function greet3() {
+				console.log(this.name);
+			}
+
+			let john1 = { name: "Johhn" };
+			// call 的作用
+			// 1. 允许调用一个函数并且改变函数内this的指向
+			greet3.call(john1);
+
+			// bind方法
+			const obj1 = {
+				name: "这是一个bind方法",
+			};
+
+			function greet4() {
+				console.log(this.name);
+			}
+
+			let greetObj = greet4.bind(obj1);
+			greetObj();
+
+			// apply()和call()作用相同，都是改变函数内this指向，区别只是在传参方式
+			// apply()的主要用途是:
+			// 1. 改变this指向并调用函数
+			// 2. 借用其他对象的方法
+			// 3. 将数组打散成函数的参数
+
+			const nums = [1, 2, 3];
+			console.log(Math.max.apply(null, nums));
+		</script>
+	</body>
+</html>
