@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<!-- 必须的 meta 标签 -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0" />
+		<title>vw适配响应式</title>
+
+		<style>
+			* {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			/* 移动端&平板适配 */
+			@media screen and (max-width: 1028px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: calc(100vw / 375 * 10);
+				}
+
+				p {
+					font-size: 1.6rem;
+					font-family: PingFangSC;
+				}
+			}
+			/* PC端适配 */
+			@media only screen and (min-width: 1029px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body background="#f8f8f8">
+		<p id="demo1">默认绑定</p>
+		<p>当函数作为独立函数调用时,this指向全局对象。严格模式下,this指向undefined。</p>
+		<script>
+			function foo() {
+				console.log("默认绑定", this);
+			}
+
+			foo();
+		</script>
+		<hr />
+		<p id="demo2">显示绑定</p>
+		<p>通过call、apply、bind显式地绑定this。this指向我们传入的对象。</p>
+		<script>
+			function foo1() {
+				console.log("显示绑定", this);
+			}
+
+			let obj = {
+				name: "Anthony",
+			};
+
+			foo.call(obj);
+		</script>
+
+		<p id="demo3">隐式绑定</p>
+		<p>当函数作为某个对象的方法调用时,this指向那个调用对象。</p>
+		<script>
+			let obj1 = {
+				name: "Anthony1",
+				foo: function () {
+					console.log("隐式绑定", this);
+				},
+			};
+
+			obj1.foo();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<!-- 必须的 meta 标签 -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0" />
+		<title>vw适配响应式</title>
+
+		<style>
+			* {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			/* 移动端&平板适配 */
+			@media screen and (max-width: 1028px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: calc(100vw / 375 * 10);
+				}
+
+				p {
+					font-size: 1.6rem;
+					font-family: PingFangSC;
+				}
+			}
+			/* PC端适配 */
+			@media only screen and (min-width: 1029px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<p>结果：<span id="demo1"></span></p>
+		<p>结果：<span id="demo2"></span></p>
+
+		<script>
+			// 定义一个学生构造函数
+			function Student(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+
+			// 定义构造函数的原型方法， 在原型上定义了一个introduce方法
+			Student.prototype.introduce = function () {
+				console.log("This is " + this.name + "今年" + this.age + "岁");
+				document.getElementById("demo1").innerHTML = "This is " + this.name + "今年" + this.age + "岁";
+				document.getElementById("demo2").innerHTML = "This is " + this.name + "今年" + this.age + "岁";
+			};
+
+			// 定义两个学生实例，调用introduce方法，所以每个实例都可以访问到原型上的方法和属性
+			var xiaoming = new Student("小明", 21);
+			var xiaohong = new Student("小红", 23);
+
+			// 调用实例方法
+			xiaoming.introduce();
+			xiaohong.introduce();
+		</script>
+	</body>
+</html>
