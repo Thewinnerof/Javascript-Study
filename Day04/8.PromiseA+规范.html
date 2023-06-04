@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<!-- 必须的 meta 标签 -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0" />
+		<title>vw适配响应式</title>
+
+		<style>
+			* {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			/* 移动端&平板适配 */
+			@media screen and (max-width: 1028px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: calc(100vw / 375 * 10);
+				}
+
+				p {
+					font-size: 1.6rem;
+					font-family: PingFangSC;
+				}
+			}
+			/* PC端适配 */
+			@media only screen and (min-width: 1029px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			Promise
+			A+规范是Promise/A+规范的最新版本,它定义了Promise对象应该具有的属性和方法,以及它们的行为。遵循这份规范可以使Promise对象在不同的JavaScript环境中拥有一致的行为。
+		</p>
+
+		<script>
+			// 1. 构造函数
+
+			// 使用new操作符创建Promise对象,构造函数接收一个执行器函数作为参数,执行器函数有 resolve 和 reject 两个参数。
+			const promise = new Promise((resolve, reject) => {});
+
+			// 2. then方法
+			// Promise对象必须有一个then方法,接收resolve和reject回调作为参数
+			promise.then(
+				(value) => {
+					// resolve 回调
+				},
+				(reson) => {
+					// reject 回调
+				}
+			);
+
+			// 3. 状态
+			// Promise对象必须有三种状态:pending、fulfilled和rejected。状态的迁移为不可逆的。
+
+			// 4. resolve和reject函数
+			// executor 函数中的
+			// resolve函数将Promise状态由pending变成fulfilled,
+			// reject函数将promist状态由pending变成rejected
+
+			// 5. 链式调用
+			// then方法必须返回一个新的Promise对象，从而实现链式调用
+
+			// 6. catch方法
+			// Promise对象必须有一个catch方法，作为rejected状态的回调方法，它的作用相当于then(null,reject)
+			promise.catch((err) => {
+				console.log("处理Error");
+			});
+
+			// 7. finally方法
+			// Promise对象支持finally方法,无论最终状态是什么,其回调函数都会执行。
+			promise.finally(() => {
+				console.log("无论最终状态,都会执行  ");
+			});
+
+			// 8. 静态resolv reject方法
+			// Promise构造函数必须有静态方法resolve和reject,分别返回resolved状态和rejected状态的Promise对象。
+			let resolved = Promise.resolve("ok");
+			let rejected = Promise.reject(new Error("error"));
+		</script>
+	</body>
+</html>
