@@ -10,7 +10,7 @@ Javascript 笔记记录
 │  ├─ 4. 了解函数式编程
 │  └─ 
 ├─ Day05
-│  └─ 
+│  └─ 1. 宏任务和微任务 [macrotask queue & microtask queue ]
 └─ readme.md
 
 ```
