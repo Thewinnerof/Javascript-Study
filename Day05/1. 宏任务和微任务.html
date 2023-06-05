@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<!-- 必须的 meta 标签 -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0" />
+		<title>vw适配响应式</title>
+
+		<style>
+			* {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			/* 移动端&平板适配 */
+			@media screen and (max-width: 1028px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: calc(100vw / 375 * 10);
+				}
+
+				p {
+					font-size: 1.6rem;
+					font-family: PingFangSC;
+				}
+			}
+			/* PC端适配 */
+			@media only screen and (min-width: 1029px) {
+				html,
+				body {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					font-size: 10px;
+				}
+
+				p {
+					font-size: 1.6rem;
+					font-family: PingFangSC;
+					margin-top: 1rem;
+				}
+
+				.container {
+					width: 67.7rem;
+					height: 60rem;
+					margin: 0 auto;
+					background-color: #ccc;
+					text-align: center;
+					padding: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<p>- macrotask queue:宏任务队列 - microtask queue:微任务队列</p>
+			<p>宏任务队列</p>
+			<p style="text-align: left">
+				- setTimeout <br />
+				- setInterval<br />
+				- setImmediate (Node.js)<br />
+				- I/O 操作<br />
+				- UI rendering<br />
+			</p>
+			<p>微任务队列</p>
+			<p style="text-align: left">
+				- promise.then() <br />- queueMicrotask() (ES2020) <br />- MutationObserver <br />- process.nextTick (Node.js)<br />
+			</p>
+
+			<p>执行结果: <span id="result">1 4 3 2</span></p>
+
+			<p>在这个例子2中，promise1 会一直处于挂起状态，所以 () => {console.log(3);} 不会被执行，控制台也不会输出3。</p>
+		</div>
+
+		<script>
+			console.log("1");
+
+			setTimeout(() => {
+				console.log(2);
+			}, 0);
+
+			Promise.resolve().then(() => {
+				console.log(3);
+			});
+
+			console.log(4);
+		</script>
+
+		<p>
+			所有事件循环的阶段是：1. 执行同步代码（宏任务和微任务）2. 执行微任务队列中的任务 3.
+			执行宏任务队列中的一个任务（开始新一轮循环）
+		</p>
+
+		<script>
+			const promise1 = new Promise((resolve, reject) => {
+				console.log(1);
+				resolve("success");
+			});
+
+			promise1.then((val) => {
+				console.log(3);
+			});
+
+			console.log(4);
+		</script>
+
+		<!-- 例子2 -->
+		<script>
+			console.log("----------------------------------");
+			const promise2 = new Promise((resolve, reject) => {
+				console.log(1);
+			});
+
+			promise2.then(() => {
+				console.log(3);
+			});
+
+			console.log(4);
+			console.log("----------------------------------");
+		</script>
+
+		<!-- 每个Promise状态 -->
+		<script>
+			console.log("----------------------------------");
+			const promise3 = new Promise((resolve, reject) => {
+				//1.  先执行promise3，打印1 / # 控制台输出1 promise3是resolved状态
+				console.log(1);
+				// resolve丢进微任务队列
+				resolve("resolve1");
+			});
+			// 2. 执行完promise3，接着执行如下任务被添加到微任务队列中，同时promise3.hten()将返回一个新的待处理的promise对象
+			const promise4 = promise3.then((res) => {
+				console.log(res);
+			});
+
+			// 3. 打印出字符串promise3 和处于挂起状态的promise1
+			console.log("promise3: ", promise3);
+			// 4. 执行promise4，控制台打印promise4 和 处于挂起状态的promise4
+			console.log("promise4: ", promise4);
+			console.log("----------------------------------");
+
+			// 5. 所有同步的代码，即当前的宏任务都被执行了，然后js引擎检查微任务队列并依次执行
+			// (res) => {console.log(res)}; 是唯一一个微任务现在被执行
+		</script>
+
+		<script>
+			console.log("----------------------------------");
+			// 创建Promise对象的行为发生在fn函数中，fn函数虽然是一个普通的同步函数
+			const fn = () =>
+				new Promise((resolve, reject) => {
+					console.log(1);
+					resolve("success");
+				});
+
+			fn().then((res) => {
+				console.log(res);
+			});
+
+			console.log(2);
+			console.log("----------------------------------");
+		</script>
+
+		<!-- 例子5 -->
+		<script>
+			console.log("----------------------------------");
+			console.log("start");
+
+			// setTimeout是一个回调函数 不会立即执行 会被压入宏任务队列，等待稍后执行
+			setTimeout(() => {
+				console.log("setTimeout");
+			});
+			// 开始执行Promise时候被推入微任务队列
+			Promise.resolve().then(() => {
+				console.log("resolve");
+			});
+			// 执行log，打印end 第一个红任务就完成了，当地一个宏任务完成之后，js会先检查微任务队列，然后依次完成
+			console.log("end");
+			console.log("----------------------------------");
+		</script>
+
+		<!-- 例子6 -->
+		<script>
+			console.log("----------------------------------");
+			const promise5 = new Promise((resolve, reject) => {
+				console.log(1);
+				setTimeout(() => {
+					console.log("第一个宏任务完成，但微任务还是空的，开始执行下一个宏任务");
+					resolve("Success");
+					console.log("timerEnd, 当前的宏任务结束，再次检查微任务队列");
+				}, 0);
+				console.log(2);
+			});
+
+			promise5.then((res) => {
+				console.log(res);
+			});
+			console.log(4);
+			console.log("----------------------------------");
+		</script>
+
+		<!-- 例子7 -->
+		<script>
+			console.log("----------------------------------");
+			const timer1 = setTimeout(() => {
+				console.log("timer1");
+				const timer3 = setTimeout(() => {
+					console.log("timer3");
+				}, 0);
+			}, 0);
+
+			const timer2 = setTimeout(() => {
+				console.log("timer2");
+			}, 0);
+			console.log("start");
+			console.log("----------------------------------");
+		</script>
+
+		<!-- 例子8 -->
+		<script>
+			console.log("----------------------------------");
+			const path1 = setTimeout(() => {
+				console.log("path1");
+				// 因为 setTimeout 是宏任务而 Promise.then 是微任务，并且微任务优先于宏任务，所以控制台输出的顺序是不一样的。
+				const promise6 = Promise.resolve().then(() => {
+					console.log("“path1 - promise6");
+				});
+			}, 0);
+
+			const path2 = setTimeout(() => {
+				console.log("path2");
+			}, 0);
+
+			console.log("path - start");
+			console.log("----------------------------------");
+		</script>
+	</body>
+</html>
