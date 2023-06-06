@@ -240,7 +240,25 @@
 			console.log("----------------------------------");
 		</script>
 
-        <!-- 例子9 -->
-        
+		<!-- 例子9 -->
+		<script>
+			console.log("----------------------------------");
+			const momo1 = Promise.resolve().then(() => {
+				console.log("momo1");
+				const time2 = setTimeout(() => {
+					console.log("time2");
+				}, 0);
+			});
+
+			const time1 = setTimeout(() => {
+				console.log("tim1");
+				const momo2 = Promise.resolve().then(() => {
+					console.log("momo2");
+				});
+			}, 0);
+			console.log("start-momo");
+
+			console.log("----------------------------------");
+		</script>
 	</body>
 </html>
