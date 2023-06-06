@@ -10,7 +10,12 @@ Javascript 笔记记录
 │  ├─ 4. 了解函数式编程
 │  └─ 
 ├─ Day05
-│  └─ 1. 宏任务和微任务 [macrotask queue & microtask queue ]
+│  ├─ 1. 宏任务和微任务 [macrotask queue & microtask queue ]
+│  ├─ 2. then 的链式调用和值的穿透
+│  ├─ 3. CommonJS 模块化规范及发展
+│  ├─ 4. AMD、CMD、systemJS 模块化规范介绍及使用
+│  ├─ 5. 同步模式/异步模式的差异、使用、原理
+│  └─ 
 └─ readme.md
 
 ```
