@@ -1,43 +1,52 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+// const cors = require("cors");
 
 const app = express();
 
 // 使用 CORS 中间件
-app.use(cors()); 
+// app.use(
+// 	cors({
+// 		origin: ["http://localhost:3000"],
+// 		headers: ["X-Requested-With"],
+// 	})
+// );
 
 // 定义端口
 const port = 3000;
 
 // 定义示例用户数据
 let users = [
-  { id: 1, name: 'John' },
-  { id: 2, name: 'Jane' }
+	{ id: 1, name: "John" },
+	{ id: 2, name: "Jane" },
 ];
 
+app.options("/users", (req, res) => {
+	res.status(200).end();
+});
+
 // 获取所有用户
-app.get('/users', (req, res) => {
-  res.json(users);
+app.get("/users", (req, res) => {
+	res.json(users);
 });
 
 // 获取指定用户
-app.get('/users/:id', (req, res) => {
-  const user = users.find(u => u.id === parseInt(req.params.id));
-  res.json(user); 
-});
+// app.get("/users/:id", (req, res) => {
+// 	const user = users.find((u) => u.id === parseInt(req.params.id));
+// 	res.json(user);
+// });
 
-// 添加新用户 
-app.post('/users', (req, res) => {
-  const user = {
-    id: users.length + 1, 
-    name: req.body.name
-  };
-  users.push(user);
-  res.json(user);
-});
+// 添加新用户
+// app.post("/users", (req, res) => {
+// 	const user = {
+// 		id: users.length + 1,
+// 		name: req.body.name,
+// 	};
+// 	users.push(user);
+// 	res.json(user);
+// });
 
 // 启动服务器
-app.listen(port, () => console.log(`Server running on port ${port}`)); 
+app.listen(port, () => console.log(`Server running on port ${port}`));
 // 这个示例中:
 // - 使用 Express 初始化一个app
 // - 定义文章数据 articles 作为数据库
