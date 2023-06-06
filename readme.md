@@ -26,8 +26,13 @@ Javascript 笔记记录
 │  └─ 
 ├─ Day07    ES6
 │  ├─ 1. 新增API && ESNext规范中的API解析
+│  ├─ 2. 异步 & 生成器迭代器
+│  ├─ 3. Proxy、Reflect、Map、Set、Symbol 新特性
 │  ├─
 │  ├─
+│  └─ 
+├─ Day07    ESNext 规范及编译工具简介
+│  ├─ 1. 使用 node.js express 书写简单 API
 │  ├─
 │  ├─
 │  └─ 
