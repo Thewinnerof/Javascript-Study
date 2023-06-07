@@ -11,13 +11,13 @@ node Express搭建接口
 │  ├─ 项目根目录新建 app.js
 │  └─ 
 ├─ 2. 路由
-│  ├─ 根目录创建controllers文件夹，专门存放路由回调
-│  ├─ loginController.js                               登录逻辑
-│  ├─
-│  ├─
-│  ├─
-│  ├─
-│  ├─
+│  ├─ 2.1 根目录创建controllers文件夹，专门存放路由回调
+│  ├─  ├─ loginController.js                                                登录逻辑
+│  ├─  ├─ userController.js                                                 用户逻辑
+│  ├─ 2.2 根目录创建routes文件夹，专门存放路由
+│  ├─  ├─ login.js                                                      登陆路由                                                              
+│  ├─  ├─ user.js                                                       用户路由
+│  ├─  ├─ index.js                                                      路由出口
 │  ├─
 │  ├─
 │  └─ 
