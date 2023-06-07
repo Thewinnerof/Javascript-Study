@@ -1,8 +1,10 @@
+const cors = require("cors");
 const express = require("express");
-// const cors = require("cors");
 
 const app = express();
-
+app.use(cors({
+    origin: 'http://localhost:3000' 
+}))
 // 使用 CORS 中间件
 // app.use(
 // 	cors({
@@ -20,9 +22,9 @@ let users = [
 	{ id: 2, name: "Jane" },
 ];
 
-app.options("/users", (req, res) => {
-	res.status(200).end();
-});
+// app.options("/users", (req, res) => {
+// 	res.status(200).end();
+// });
 
 // 获取所有用户
 app.get("/users", (req, res) => {

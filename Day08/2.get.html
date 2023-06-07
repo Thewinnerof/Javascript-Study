@@ -49,14 +49,32 @@
 			// - GET /articles/:id 获取指定文章
 			// - POST /articles 新增一篇文章
 
-			// 1. 获取所有文章
-			const request = new XMLHttpRequest();
-			request.open("GET", "http://127.0.0.1:3000/users");
-			request.send();
-
-			request.onload = () => {
-				console.log(request.status);
-			};
+			fetch("http://localhost:3000/api/data", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				mode: "cors",
+			})
+				.then((response) => {
+					console.log(response);				// 响应头信息
+					return response.json();
+				})
+				.then((data) => {
+					console.log(data);
+				})
+				.catch((error) => {
+					console.error(error);
+				});
 		</script>
 	</body>
 </html>
+
+
+    <!-- 
+	在上面的例子中，客户端使用 fetch 发送一个 GET 请求到 
+	http://CORS.com/api/data，通过设置 mode 为 cors，
+	`告诉浏览器需要使用 CORS 方案来解决跨域问题。服务端使用 express 框架，
+	设置 Access-Control-Allow-Origin 等响应头，指定允许访问的源和方法。
+	当浏览器发送预检请求时，服务端会返回响应头，告诉浏览器允许跨域访问 
+-->
