@@ -31,7 +31,7 @@ Javascript 笔记记录
 │  ├─
 │  ├─
 │  └─ 
-├─ Day07    ESNext 规范及编译工具简介
+├─ Day08    ESNext 规范及编译工具简介
 │  ├─ 1. 使用 node.js express 书写简单 API
 │  ├─
 │  ├─
