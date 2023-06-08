@@ -36,17 +36,19 @@ node Express搭建接口
 │  ├─  ├─ 
 │  ├─  └─
 │  └─
-│  5. express 链接数据库
+│  5. express mysql  连接数据库
 │  ├─  ├─
 │  ├─  ├─
 │  ├─  ├─
 │  ├─  └─
 │  └─
-│  ├─  ├─
-│  ├─  ├─
-│  ├─  ├─
-│  ├─  ├─
-│  ├─  └─
+│  6. express-jwt、jsonwebtoken
+│  ├─ 6.1 jsonwebtoken用来生成token给客户端、express-jwt用来验证token
+│  ├─  ├─ 安装 yarn add jsonwebtoken yarn add express-jwt
+│  ├─  ├─ 修改routes/login.js 生成token
+│  ├─  ├─ 修改routes/index.js 注入验证模块，并对错误进行处理
+│  ├─  ├─ 
+│  ├─  └─ 
 │  └─
 │  ├─  ├─
 │  ├─  ├─
