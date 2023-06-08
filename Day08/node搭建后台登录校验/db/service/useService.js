@@ -1,1 +1,1 @@
-exports.userAll = `SELECT * from user1;`;
+exports.userAll = `SELECT * from user;`;

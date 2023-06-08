@@ -3,9 +3,9 @@ const pool = mysql.createPool({
 	connectionLimit: 10,
 	host: "localhost",
 	port: 3306,
-	user: "root",
-	password: "toor123",
-	database: "mysql",
+	user: "admin",
+	password: "admin123",
+	database: "expressApi",
 });
 
 class Mysql {
@@ -15,6 +15,7 @@ class Mysql {
 			pool.getConnection(function (err, connection) {
 				if (err) {
 					reject(err);
+					console.log("连接错误");
 					throw err; // not connected!
 				}
 				connection.query(sql, function (error, results, fields) {
